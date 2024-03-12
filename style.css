@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+ background-color: rgb(66, 104, 153);
+ color: white;
+}
+
+.button {
+    cursor: pointer;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50px;
+}
+
+.players-name{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 65px;
+
+}
+
+
+.container{
+    border: 1px solid black;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 100px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    color: green;
+    border: 5px solid rgb(150, 179, 124);
+    border-radius: 6px;
+}
+
+.insert-name-user {
+    margin-top: 1rem;
+}
+
+.insert-name-user label {
+    display: block;
+    margin-bottom: 5px; /* Adicione um espaçamento entre o rótulo e o campo de entrada */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.insert-name-user input {
+    display: block;
+    width: 50vh;
+    height: 5vh;
+    font-size: 1.5rem;
+    color: green;
+}
+
+.button {
+        background-color: white;
+        color: green;
+        font-size: 16px;
+        font-weight: bold;
+        border: 1px solid green;
+        border-radius: 6px;
+        height: 48px;
+        padding: 0 32px;
+        margin: 5px;
+        transition: 0.2s;
+}
+
+.start-quiz:hover{
+    background-color: green;;
+    color: white;
+    border: none;
+    transition: 1s;
+}
+
+.next-question:hover{
+    background-color: green;;
+    color: white;
+    border: none;
+    transition: 1s;
+}
+
+.question {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.answers-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.answers-container button:hover{
+    background-color: green;;
+    color: white;
+    border: none;
+    transition: 0.2s;
+}
+
+.controls-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button:not(:disabled):hover{
+    filter: brightness(0.8);
+    /*botões que não estejam desabilitados tenham esse efeito de hover*/
+}
+
+.answer:disabled {
+    cursor: not-allowed;
+}
+
+.hide {
+    display: none;
+}
+
+
+.correct {
+    background-color: #049b48;
+    color: #fff;
+}
+
+.incorrect {
+    background-color: #a10101;
+    color: #fff;
+}
