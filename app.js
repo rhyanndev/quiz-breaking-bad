@@ -5,8 +5,9 @@ const $playersName = document.querySelector(".players-name");
 const $questionContainer = document.querySelector(".questions-container");
 const $answersContainer = document.querySelector(".answers-container");
 const $questionText = document.querySelector(".question");
-const $answers = document.querySelectorAll(".answer");
 const $nextQuestionButton = document.querySelector(".next-question");
+let $inputField = document.getElementById("user");
+
 
 import { questions } from "./questions.js";
 
@@ -88,6 +89,7 @@ function selectAnswer(event){
 
     if(answerClicked.dataset.correct){
         document.body.classList.add("correct");
+        totalCorrect++;
     }
     else{
         document.body.classList.add("incorrect");
@@ -134,7 +136,7 @@ function finishGame(){
         message = "Pode melhorar :("
     }
 
-    $questionsContainer.innerHTML = 
+    $questionContainer.innerHTML = 
     
     `
       <p class= "final-message">
@@ -142,7 +144,7 @@ function finishGame(){
         <span>Resultado: ${message}</span>
       </p>
 
-      <button onclick = window.location.reload() class = "button">
+      <button onclick = window.location.reload() class = "refaz button">
 
       Refazer teste
 
@@ -150,96 +152,30 @@ function finishGame(){
     `
   }
 
-
-
-
 }
 
 
+function checkNonNumeric(event) {
+    // Obtém o código do caractere digitado
+    var charCode = event.which ? event.which : event.keyCode;
 
-// function checkNonNumeric(event) {
-//     // Obtém o código do caractere digitado
-//     var charCode = event.which ? event.which : event.keyCode;
+    // Permite apenas caracteres não numéricos
+    if (charCode >= 48 && charCode <= 57) {
+        // Se o caractere for numérico, retorna falso para impedir a entrada
+        return false;
+    }
+    // Se não for numérico, permite a entrada
+    return true; 
+}
 
-//     // Permite apenas caracteres não numéricos
-//     if (charCode >= 48 && charCode <= 57) {
-//         // Se o caractere for numérico, retorna falso para impedir a entrada
-//         return false;
-//     }
-//     // Se não for numérico, permite a entrada
-//     return true; 
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-// const questions = [
-//   {
-//     question: "Qual é o nome completo do personagem principal em Breaking Bad?",
-//     answers: [
-//       { text: "Walter White", correct: true },
-//       { text: "Jesse Pinkman", correct: false },
-//       { text: "Saul Goodman", correct: false },
-//       { text: "Gustavo Fring", correct: false }
-//     ]
-//   },
-//   {
-//     question: "Qual é o apelido de Walter White quando ele começa a produzir metanfetamina?",
-//     answers: [
-//       { text: "Heisenberg", correct: true },
-//       { text: "El Loco", correct: false },
-//       { text: "The Chemist", correct: false },
-//       { text: "Mr. Blue", correct: false }
-//     ]
-//   },
-//   {
-//     question: "Qual é o nome do laboratório móvel de Walter White e Jesse Pinkman?",
-//     answers: [
-//       { text: "RV", correct: true },
-//       { text: "The Den", correct: false },
-//       { text: "Crystal Palace", correct: false },
-//       { text: "The Lab", correct: false }
-//     ]
-//   },
-//   {
-//     question: "Quem é o cozinheiro principal no laboratório de Gus Fring?",
-//     answers: [
-//       { text: "Gale Boetticher", correct: true },
-//       { text: "Todd Alquist", correct: false },
-//       { text: "Mike Ehrmantraut", correct: false },
-//       { text: "Hank Schrader", correct: false }
-//     ]
-//   },
-//   {
-//     question: "Quem é o irmão de Walter White, que trabalha na Agência de Controle de Narcóticos?",
-//     answers: [
-//       { text: "Hank Schrader", correct: true },
-//       { text: "Ted Beneke", correct: false },
-//       { text: "Saul Goodman", correct: false },
-//       { text: "Skyler White", correct: false }
-//     ]
-//   },
-//   {
-//     question: "Onde Walter White esconde sua fortuna ganha com a produção de metanfetamina?",
-//     answers: [
-//       { text: "No deserto", correct: false },
-//       { text: "Em barris enterrados", correct: true },
-//       { text: "No banco", correct: false },
-//       { text: "Sob o assoalho de sua casa", correct: false }
-//     ]
-//   }
-// ];
-
-
-
+// Adiciona um ouvinte de evento para o evento keydown
+$inputField.addEventListener("keydown", function(event) {
+  // Chama a função checkNonNumeric e passa o evento
+  if (!checkNonNumeric(event)) {
+      // Se a função retornar false, cancela o evento padrão (entrada do caractere)
+      event.preventDefault();
+  }
+});
 
 
 

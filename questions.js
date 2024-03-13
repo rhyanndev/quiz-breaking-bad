@@ -36,7 +36,7 @@ const questions = [
     ]
   },
   {
-    question: "Quem é o irmão de Walter White, que trabalha na Agência de Controle de Narcóticos?",
+    question: "Quem é o cunhado de Walter White, que trabalha na Agência de Controle de Narcóticos?",
     answers: [
       { text: "Hank Schrader", correct: true },
       { text: "Ted Beneke", correct: false },
